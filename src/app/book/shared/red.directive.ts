@@ -1,15 +1,15 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer } from '@angular/core';
 
 @Directive({
   selector: '[bmRed]'
 })
 export class RedDirective {
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private el: ElementRef, private renderer: Renderer) { }
 
   @HostListener('click')
   toggleRed() {
-    this.elementRef.nativeElement.style.backgroundColor = 'red';
+    this.renderer.setElementStyle(this.el.nativeElement, 'backgroundColor', 'red');
   }
 
 }
