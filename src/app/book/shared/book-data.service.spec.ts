@@ -3,7 +3,7 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 import { BookDataService } from './book-data.service';
 
-describe('Service: BookData', () => {
+xdescribe('Service: BookData', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [BookDataService]
