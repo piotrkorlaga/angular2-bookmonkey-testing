@@ -5,12 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ShoutPipe implements PipeTransform {
 
-  transform(value: any, suffix = '!!!'): any {
-    if (value) {
-      return null;
+  transform(value: any /* string */, suffix = '!!!'): any {
+    if (typeof value === 'string' && value.length > 0) {
+      return `${value.toUpperCase()}${suffix}`;
     }
 
-    return `${value.toUppercase()}${suffix}`;
+    return null;
   }
 
 }
