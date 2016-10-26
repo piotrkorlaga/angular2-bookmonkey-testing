@@ -1,11 +1,25 @@
+<h3>Books</h3>
+
 <p bmRed>
-  {{ "book-list works" | shout:'!!!!!!' }}
+  Toggle me!
 </p>
 
 <ul>
   <li *ngFor="let book of books">
-    {{book.title}}
+    <h4>{{book.title}} <small>{{book.subtitle}}</small></h4>
+    <p><strong>{{book.author}}</strong></p>
+    <p>{{book.abstract}}</p>
+    <dl>
+      <dt>Publisher</dt> 
+      <dd>
+        <a [href]="book.publisher.url">
+          {{book.publisher.name | shout:'!!!!!!'}}
+        </a>
+      </dd>
+      <dt>Pages</dt>
+      <dd>{{book.numPages}}</dd>
+      <dt>ISBN</dt>
+      <dd>{{book.isbn}}</dd>
+    </dl>
   </li>
 </ul>
-
-{{books | json}}

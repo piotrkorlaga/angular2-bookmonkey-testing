@@ -5,7 +5,7 @@ import { Book, BookDataService } from '../shared';
 @Component({
   selector: 'bm-book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
 
