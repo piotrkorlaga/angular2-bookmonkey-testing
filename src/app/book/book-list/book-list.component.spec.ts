@@ -4,7 +4,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { BookListComponent } from './book-list.component';
 import { BookDataService } from '../shared';
 
-import { Observable } from 'rxjs/Observable';
+import {  Observable } from 'rxjs/Observable';
 import 'rxjs/add/Observable/of';
 
 const mockBooks = [
@@ -59,7 +59,7 @@ class MockBmRedDirective {
   }
 }
 
-beforeEach( async(() => {
+beforeEach(async(() => {
   TestBed.configureTestingModule({
     declarations: [
       BookListComponent,
@@ -68,9 +68,9 @@ beforeEach( async(() => {
     ],
     providers: [
       MockBookDataService, {
-      provide: BookDataService,
-      useExisting: MockBookDataService
-    }]
+        provide: BookDataService,
+        useExisting: MockBookDataService
+      }]
   });
 }));
 
