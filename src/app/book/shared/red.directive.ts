@@ -11,7 +11,7 @@ export class RedDirective {
 
   @HostListener('click')
   toggleRed() {
-    this.renderer.setElementStyle(this.el.nativeElement, 'backgroundColor', this.highlighted ? 'red' : '');
+    this.renderer.setElementStyle(this.el.nativeElement, 'backgroundColor', this.highlighted ? '' : 'red');
     this.highlighted = !this.highlighted;
   }
 
