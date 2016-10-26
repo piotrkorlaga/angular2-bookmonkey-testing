@@ -40,7 +40,7 @@ describe('Service: BookData', () => {
     });
   });
 
-  it('should return all books', inject([BookDataService, MockBackend], (service: BookDataService, backend: MockBackend) => {
+  it('should return all books', async(inject([BookDataService, MockBackend], (service: BookDataService, backend: MockBackend) => {
     expect(service).toBeTruthy();
     backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
@@ -54,5 +54,5 @@ describe('Service: BookData', () => {
       .subscribe(books => {
         expect(books).toEqual(mockBooks);
       });
-  }));
+  })));
 });
