@@ -3,11 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { BookComponent } from './book.component';
 import { BookListComponent } from './book-list/book-list.component';
-import { BookDataService } from './shared';
+import { BookDataService, ConfirmCanActivateGuardService, RedDirective, ShoutPipe } from './shared';
 
 import { routing } from './book.routing';
-import { ShoutPipe } from './shared';
-import { RedDirective } from './shared';
 
 @NgModule({
   imports: [
@@ -17,6 +15,6 @@ import { RedDirective } from './shared';
     routing
   ],
   declarations: [BookComponent, BookListComponent, ShoutPipe, RedDirective],
-  providers: [BookDataService]
+  providers: [ConfirmCanActivateGuardService, BookDataService]
 })
 export class BookModule { }
