@@ -4,7 +4,7 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { BookListComponent } from './book-list.component';
 import { BookDataService } from '../shared';
 
-import {  Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/Observable/of';
 
 const booksStub = [
@@ -66,11 +66,10 @@ beforeEach(async(() => {
       ShoutPipeStub,
       BmRedDirectiveStub
     ],
-    providers: [
-      {
-        provide: BookDataService,
-        useClass: BookDataServiceStub
-      }]
+    providers: [{
+      provide: BookDataService,
+      useClass: BookDataServiceStub
+    }]
   });
 }));
 
