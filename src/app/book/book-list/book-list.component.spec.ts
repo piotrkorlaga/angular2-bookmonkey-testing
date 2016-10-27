@@ -82,7 +82,7 @@ describe('Component: BookList', () => {
 
   it('should render p tag', async(() => {
     const fixture = TestBed.createComponent(BookListComponent) as ComponentFixture<BookListComponent>;
-    const bookListElem = fixture.debugElement.nativeElement;
+    const bookListElem = fixture.debugElement.nativeElement as HTMLDivElement;
     fixture.detectChanges();
     expect(bookListElem.querySelector('p[bmRed]').textContent).toContain('Toggle me!');
   }));
@@ -90,7 +90,7 @@ describe('Component: BookList', () => {
   it('should render three books in list', async(() => {
     const fixture = TestBed.createComponent(BookListComponent) as ComponentFixture<BookListComponent>;
     const bookList = fixture.debugElement.componentInstance as BookListComponent;
-    const bookListElem = fixture.debugElement.nativeElement;
+    const bookListElem = fixture.debugElement.nativeElement as HTMLDivElement;
     fixture.detectChanges();
     expect(fixture.componentInstance.books);
     expect(bookListElem.querySelectorAll('li').length).toBe(3);
