@@ -4,7 +4,7 @@ import { Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/ht
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BookDataService } from './book-data.service';
 
-const mockBooks = [
+const booksStub = [
   {
     'title': 'Design Patterns',
     'isbn': '978-0-20163-361-0',
@@ -44,7 +44,7 @@ describe('Service: BookData', () => {
     expect(service).toBeTruthy();
     backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
-        body: JSON.stringify(mockBooks)
+        body: JSON.stringify(booksStub)
       });
       connection.mockRespond(new Response(options));
     });
@@ -52,7 +52,7 @@ describe('Service: BookData', () => {
     service
       .getAll()
       .subscribe(books => {
-        expect(books).toEqual(mockBooks);
+        expect(books).toEqual(booksStub);
       });
   })));
 });

@@ -7,7 +7,7 @@ import { BookDataService } from '../shared';
 import {  Observable } from 'rxjs/Observable';
 import 'rxjs/add/Observable/of';
 
-const mockBooks = [
+const booksStub = [
   {
     'title': 'Design Patterns',
     'isbn': '978-0-20163-361-0',
@@ -36,16 +36,16 @@ const mockBooks = [
     }
   }
 ];
-class MockBookDataService {
+class BookDataServiceStub {
   getAll() {
-    return Observable.of(mockBooks);
+    return Observable.of(booksStub);
   }
 }
 
 @Pipe({
   name: 'shout'
 })
-class MockShoutPipe implements PipeTransform {
+class ShoutPipeStub implements PipeTransform {
   transform(value) {
     return 'TESTSHOUT!';
   }
@@ -54,7 +54,7 @@ class MockShoutPipe implements PipeTransform {
 @Directive({
   selector: '[bmRed]'
 })
-class MockBmRedDirective {
+class BmRedDirectiveStub {
   constructor() {
   }
 }
@@ -63,13 +63,13 @@ beforeEach(async(() => {
   TestBed.configureTestingModule({
     declarations: [
       BookListComponent,
-      MockShoutPipe,
-      MockBmRedDirective
+      ShoutPipeStub,
+      BmRedDirectiveStub
     ],
     providers: [
-      MockBookDataService, {
+      {
         provide: BookDataService,
-        useExisting: MockBookDataService
+        useClass: BookDataServiceStub
       }]
   });
 }));
