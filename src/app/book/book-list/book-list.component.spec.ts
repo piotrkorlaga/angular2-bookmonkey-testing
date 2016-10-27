@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { Directive, Pipe, PipeTransform } from '@angular/core';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { BookListComponent } from './book-list.component';
 import { BookDataService } from '../shared';
 
@@ -76,22 +76,24 @@ beforeEach(async(() => {
 
 describe('Component: BookList', () => {
   it('should create an instance', async(() => {
-    let fixture = TestBed.createComponent(BookListComponent);
-    let bookList = fixture.debugElement.componentInstance;
+    const fixture = TestBed.createComponent(BookListComponent) as ComponentFixture<BookListComponent>;
+    const bookList = fixture.debugElement.componentInstance as BookListComponent;
     expect(bookList).toBeTruthy();
   }));
 
   it('should render p tag', async(() => {
-    let fixture = TestBed.createComponent(BookListComponent);
-    let bookListElem = fixture.debugElement.nativeElement;
+    const fixture = TestBed.createComponent(BookListComponent) as ComponentFixture<BookListComponent>;
+    const bookListElem = fixture.debugElement.nativeElement;
     fixture.detectChanges();
     expect(bookListElem.querySelector('p[bmRed]').textContent).toContain('Toggle me!');
   }));
 
   it('should render three books in list', async(() => {
-    let fixture = TestBed.createComponent(BookListComponent);
-    let bookListElem = fixture.debugElement.nativeElement;
+    const fixture = TestBed.createComponent(BookListComponent) as ComponentFixture<BookListComponent>;
+    const bookList = fixture.debugElement.componentInstance as BookListComponent;
+    const bookListElem = fixture.debugElement.nativeElement;
     fixture.detectChanges();
+    expect(fixture.componentInstance.books);
     expect(bookListElem.querySelectorAll('li').length).toBe(3);
   }));
 });
